@@ -1,0 +1,475 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+:root {
+    --primary-color: #F26101;
+    --secondary-color: #003354;
+    --font: 'Open Sans', sans-serif;
+}
+
+body {
+    background-image: url("../img/background-search-screens.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    margin: 0 auto;
+    width: 60vw;
+    height: 100vh;
+}
+
+.box_events {
+    /*  background-color: yellow;  */
+    grid-column: 1 / -1;
+    grid-row: 3 / -1;
+    position: relative;
+    overflow: auto;
+}
+
+::-webkit-scrollbar {
+    border: 1px var(--secondary-color) solid;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-color);
+    /* Cor do ponteiro */
+    border-radius: 40px;
+    /* Borda arredondada */
+}
+
+.box_search {
+    display: flex;
+    margin-top: 5%;
+    border: 1px var(--secondary-color) solid;
+    grid-row: 1/3;
+    grid-column: 1/9;
+}
+
+.in_search {
+    width: 90%;
+    border-right: 1px var(--secondary-color) solid;
+    font-size: 2em;
+    font-family: var(--font);
+}
+
+.icon_search {
+    cursor: pointer;
+    width: 15%;
+    background-image: url("../img/icon-search.png");
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: center;
+}
+
+.links_search_screen {
+    justify-content: end;
+    gap: 13%;
+    display: flex;
+    margin-top: 10%;
+    grid-row: 1/3;
+    grid-column: 9/-1;
+}
+
+.icon_event {
+    width: 15%;
+    cursor: pointer;
+    background-image: url("../img/icon-event.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.icon_user {
+    width: 15%;
+    cursor: pointer;
+    background-image: url("../img/icon-user.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.icon_dashboard {
+    width: 15%;
+    cursor: pointer;
+    background-image: url("../img/icon-dashboard.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.icon_notification {
+    width: 15%;
+    cursor: pointer;
+    background-image: url("../img/icon-bell.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.link_exit {
+    font-family: var(--font);
+    font-size: 1.5em;
+    align-self: center;
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.icon_filter {
+    cursor: pointer;
+    display: flex;
+    width: 15%;
+    position: absolute;
+    right: 0;
+    align-items: center;
+    font-family: var(--font);
+    color: var(--primary-color);
+    font-size: 1.1em;
+}
+
+.box_info {
+    border: solid 1px black;
+    display: inline-block;
+    width: 35%;
+    height: 45%;
+    border-radius: 45px;
+    margin: 5% 5% 0%;
+}
+
+.more_info {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+    height: 25%;
+    border-radius: 0px 0px 45px 45px;
+}
+
+
+.img_info_artist {
+    border-radius: 45px 45px 0 0;
+    overflow: hidden;
+}
+
+.img_info_artist img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.img_info_event {
+    border-radius: 45px 45px 0 0;
+    overflow: hidden;
+}
+
+.img_info_event img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.img_info_event,
+.img_info_artist {
+    width: 100% ;
+    height: 75%;
+    border-radius: 45px 45px 0px 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.info_artist {
+    display: inline-block;
+    color: var(--primary-color);
+    font-family: var(--font);
+    font-size: 0.9em !important;
+    margin-top: 3%;
+}
+
+.more_info_artist {
+    color: var(--primary-color);
+    font-size: 3.5em;
+    margin-left: 5%;
+}
+
+.info_artist {
+    margin-left: 10% ;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.name_artist {
+    font-weight: 700;
+}
+
+.box_filter {
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    grid-column: 4/10;
+    grid-row: 4/11;
+    border-radius: 45px;
+    z-index: 3;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.box_filter.visible {
+    opacity: 1;
+}
+
+.close_filter {
+    background-image: url("../img/icon_close.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    width: 4%;
+    height: 4%;
+    right: 35%;
+    top: 30%;
+    position: absolute;
+}
+
+.filter_date,
+.filter_region,
+.filter_fee {
+    display: flex;
+
+    gap: 4%;
+    margin-left: 5%;
+    font-family: var(--font);
+    color: white;
+    font-size: 1em;
+    align-items: center !important;
+}
+
+
+
+.filter_region {
+    margin-top: 2%;
+}
+
+.filter_fee {
+    display: flex;
+    align-items: center;
+}
+
+.filter_fee h3 {
+    margin-right: 10px;
+    font-size: 1em !important;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 10%;
+}
+
+
+.input-container input,
+.input-container label {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 0.7em;
+}
+
+.input-container {
+    width: 10%;
+}
+
+
+.filter_date h3,
+.filter_region h3,
+.filter_fee h3 {
+    font-weight: 300;
+    font-size: 1em !important;
+}
+
+.in_region {
+    width: 50.5%;
+}
+
+.box_filter_instruments {
+    margin-top: 5%;
+}
+
+.box_filter_instruments {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--font);
+    color: white;
+    font-weight: 600;
+}
+
+.box_filter_instruments h2 {
+    text-align: center;
+    margin-bottom: 3%;
+    font-size: 1.5em !important;
+}
+
+.box_instruments {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5%;
+    font-family: var(--font);
+    color: white;
+    width: 90%;
+}
+
+.filters_instruments h3 {
+    font-weight: 200;
+    font-size: 1em !important;
+}
+
+.filters_instruments {
+    display: flex;
+    gap: 2%;
+}
+
+.filters_instruments input[type="text"] {
+    width: 0%;
+    align-self: center;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    /* Remover a aparência padrão do checkbox */
+    -moz-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #000;
+    background-color: rgb(255, 248, 235);
+    border-radius: 3px;
+    outline: none;
+    /* Remover a borda ao receber foco */
+    position: relative;
+    /* Para posicionar o ícone */
+}
+
+input[type="checkbox"]::after {
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 10px;
+    height: 10px;
+    background-image: url(../img/icon-tick.png);
+    /* Caminho para a imagem do ícone */
+    background-size: cover;
+    /* Ajusta o tamanho do ícone */
+    opacity: 0;
+    /* Ícone invisível por padrão */
+}
+
+input[type="checkbox"]:checked::after {
+    opacity: 1;
+    /* Mostra o ícone quando o checkbox está marcado */
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--secondary-color);
+}
+
+.title_filter {
+    text-align: center;
+    font-family: var(--font);
+    color: white;
+}
+
+.btn_filter {
+    display: flex;
+    align-self: center;
+    cursor: pointer;
+    width: 20%;
+    padding: 2% 4.5%;
+    border-radius: 10px;
+    background-color: white;
+    color: var(--primary-color);
+    font-weight: 700;
+    transition: transform 0.3s;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.btn_filter:hover {
+    transform: scale(1.05);
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+@media (min-width: 1200px) {
+    .box_filter {
+        grid-column: 4/10;
+        grid-row: 4/10;
+    }
+}
+
+.blur-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    display: none;
+}
+
+.blur-overlay.visible {
+    display: block;
+}
+
+.in_value_fee {
+
+    width: 20%;
+}
+
+.min_value_fee,
+.max_value_fee {
+    font-size: 0.6em;
+    font-weight: 100;
+    position: absolute;
+}
+
+.max_value_fee {
+    color: white;
+    right: 46.6%;
+    top: 44%;
+}
+
+.min_value_fee {
+    color: white;
+    right: 53.8%;
+    top: 44%;
+}
+
+.ate {
+    font-size: 0.9em;
+}
+
+#multipleSelect {
+    max-width: 100%;
+    border: 1px solid #ff7100;
+    border-radius: 5px;
+  }
+
+  input#filter_inpt_date {
+    width: 50%;
+  }
+
+  
